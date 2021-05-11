@@ -374,7 +374,6 @@ void leerArchivo(char *archivoEntrada, char* archivoSalida, char **terminales){
 
         nodo *listaSecuencias2 = invertirNodo(listaSecuencias);
         //mostrarNodo(listaSecuencias2);
-        //printf("se cae");
         if(listaSecuencias2 != NULL){
             
             nodo *auxiliar=listaSecuencias2;
@@ -389,6 +388,8 @@ void leerArchivo(char *archivoEntrada, char* archivoSalida, char **terminales){
     }
     //Término de lectura de archivo
     //printf("\ntermina de leer");
+    
+
     fclose(salida);
 }
 
