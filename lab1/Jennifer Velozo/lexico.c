@@ -65,7 +65,6 @@ nodo *invertirNodo(nodo *primero){
         nuevo->secuencia = auxiliar->secuencia;
         nuevo->largo = auxiliar->largo;
         invertido = insertar(invertido,nuevo);
-        //printf("\nInsertando nodoooooooooooooooooooooooooo");
         //mostrarNodo(invertido);
         auxiliar=auxiliar->siguiente;
     }
@@ -334,7 +333,7 @@ nodo  *analizadorLexico(char **terminales, char *palabra){
             if (esTerminal(secuencia,terminales) == 1){
                 i=j;
                 //printf("           -------------> si");
-                if(listaSecuencias != NULL && strspn(listaSecuencias->secuencia,secuencia) >0){
+                if(listaSecuencias != NULL && strlen(listaSecuencias->secuencia) < strlen(secuencia)  && strcmp(listaSecuencias->secuencia,secuencia) != 0){
                     //printf("\nsecuencia anterior: %s\n", listaSecuencias->secuencia);
                     char *aux = buscar(secuencia, terminales);
                     listaSecuencias ->secuencia = aux;
