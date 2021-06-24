@@ -48,38 +48,38 @@ melodías    {fprintf(yyout, "MELODÍAS\n");}
 
 void main(int argc, char const *argv[]) {
 
-	char entrada[20];
-   	char salida[20];
-	
-   	if (argc == 1){
-		printf("Error: Faltan par%cmetros.\nUso: lexico.exe archivo_entrada archivo_salida\n", 160);
-	}
-	
-	if (argc == 2){
-		printf("Error: Falta par%cmetro.\nUso: lexico.exe archivo_entrada archivo_salida\n", 160);
-	}
-       
-	if (argc == 3){
-		strcpy(entrada, argv[1]);
-		strcpy(salida, argv[2]);
-        yyin = fopen(entrada, "r");
-        yyout = fopen(salida, "r");
+    char archivoEntrada[100], archivoSalida[100];
 
-        if (yyin == NULL){
+    if (argc < 2){
+        printf("Error: Faltan par%cmetros.", 160);
+        printf("\nUso: lexico.exe archivo_entrada archivo_salida \n");
+    }
+
+    else if (argc == 2){
+        printf("Error: Falta par%cmetro.", 160);
+        printf("\nUso: lexico.exe archivo_entrada archivo_salida\n");
+    }
+
+    else if (argc > 3){
+        printf("Error: Demasiados par%cmetros.", 160);
+        printf("\nUso: lexico.exe archivo_entrada archivo_salida\n");
+    }
+
+    else{
+        strcpy(archivoEntrada,argv[1]);
+        strcpy(archivoSalida,argv[2]);
+        yyin = fopen(archivoEntrada, "r");
+        yyout = fopen(archivoSalida, "r");
+        if(yyin == NULL){
             printf("Error: El archivo de entrada no existe.\n");
-		}
-
-        else if (yyout != NULL){
+        }
+        else if(yyout != NULL){
             printf("Error: El archivo de salida ya existe.\n");
-		}
-
-        else {      
-            yyout = fopen(salida, "w");
+        }
+        else{
+            yyout = fopen(archivoSalida, "w");
             yylex();
             fclose(yyout);
         }
-	}
-    if (argc > 3) {
-        printf("Error: Demasiados par%cmetros.\nUso: lexico.exe archivo_entrada archivo_salida\n", 160);
     }
 }
