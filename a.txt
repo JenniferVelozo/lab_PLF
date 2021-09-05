@@ -1,0 +1,41 @@
+%token DIFERENTES
+%token ERES
+%token SONIDOS
+%token NOTAS
+%token FIGURAS
+%token GÉNEROS
+%token ESCUCHAR
+%token TOCAR
+%token CANTAR
+%token GUSTA
+%token AGRADA
+%token RELAJA
+%token GUITARRA
+%token VIOLÍN
+%token MÚSICA
+%token VOCALISTA
+%token COMPOSITOR
+%token CANTAUTOR
+%token TÚ
+%token INTERPRETAR
+%token COMPONER
+%token BAJO
+%token PIANO
+%token BATERISTA
+%token CANCIONES
+%token COMPONES
+%token LA
+%token FLAUTA
+%token EL
+%token SAXOFÓN
+%token MELODÍAS
+
+
+a: SONIDOS | NOTAS | FIGURAS | GÉNEROS ;
+b: c ESCUCHAR e | c TOCAR d | c CANTAR | c INTERPRETAR e | c COMPONER e ;
+c: GUSTA | AGRADA | RELAJA ;
+d: GUITARRA | h VIOLÍN | h BAJO | h PIANO | LA FLAUTA | h SAXOFÓN ;
+e: MÚSICA | CANCIONES | MELODÍAS ;
+f: h VOCALISTA | COMPOSITOR | h CANTAUTOR | BATERISTA ;
+g: TÚ ;
+h: EL ;
